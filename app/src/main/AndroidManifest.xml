@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dell.c1ean">
+
+    <application
+        android:name=".Application.BaseAppliction"
+        android:allowBackup="true"
+        android:icon="@mipmap/brand"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/brand"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activity.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.LoginActivity"/>
+        <activity android:name=".Activity.LoginRegisterActivity"/>
+        <activity android:name=".Activity.RegisterTypeActivity"/>
+        <activity android:name=".Activity.UserHomePageActivity"/>
+        <activity android:name=".Activity.UserRegisterActivity"/>
+        <activity android:name=".Activity.WorkerCompanyRegisterActivity"/>
+    </application>
+
+</manifest>

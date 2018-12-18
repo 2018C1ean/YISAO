@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">C1ean</string>
+    <string name="app_name1">一扫</string>
+    <string-array name="user_type">
+        <item>用户</item>
+        <item>家政人员</item>
+        <item>家政公司</item>
+    </string-array>
+</resources>
