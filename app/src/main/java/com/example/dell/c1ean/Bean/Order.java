@@ -13,7 +13,7 @@ import com.example.dell.c1ean.DAO.UserDao;
 import com.example.dell.c1ean.DAO.WorkerDao;
 
 /**
- * Created by Eskii on 2018/11/28.
+ * Created by 李雯晴 on 2018/11/28.
  * 用户所下订单
  */
 
@@ -26,32 +26,28 @@ public class Order {
     private Long user_id;   //下订单的用户id
     @ToOne(joinProperty = "user_id")
     private User user;  //user_id为外键，参照user表的id
-    @NotNull
     private Long worker_id; //提供服务的阿姨id
     @ToOne(joinProperty = "worker_id")
     private Worker worker;  //worker_id为外键，参照worker表的id
     private Long company_id;    //阿姨所属公司id
     @NotNull
     private String type;    //此订单服务类型
-    @NotNull
-    private Float area; //用户的房间大小
+    private String area; //用户的房间大小（如果类型为专业保洁或家居养护）
+    private String item_number; //清洁件数（如果类型为家电清洗或洗护服务）
     @NotNull
     private String userLocation;    //用户地址
-    @NotNull
-    private Float money;    //订单金额
-    @NotNull
+    private String money;    //订单金额
     private String orderTime;   //下订单时间
-    @NotNull
     private String bookingTime; //预约的服务时间
-    @NotNull
     private String payTime; //用户付款时间
     @NotNull
-    private int state;  //订单状态
+    private int state;  //订单状态：0为用户未支付；1为用户已支付；2为商家已接单；3为已结束服务；
     private String userEvaluation;  //用户评价
     private String workerEvaluation;    //阿姨回复
     private int star;   //用户评价星级
+    private Long activity_id;
     @NotNull
-    private int isActivity; //是否是商家发布的活动
+    private int isActivity; //是否是商家发布的活动 0不是，1是
     @Generated(hash = 1041702162)
     private transient Long worker__resolvedKey;
     @Generated(hash = 251390918)
@@ -63,22 +59,19 @@ public class Order {
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
 
-    public Order() {
-    }
-
-    @Generated(hash = 1767418604)
-    public Order(Long id, @NotNull Long user_id, @NotNull Long worker_id,
-            Long company_id, @NotNull String type, @NotNull Float area,
-            @NotNull String userLocation, @NotNull Float money,
-            @NotNull String orderTime, @NotNull String bookingTime,
-            @NotNull String payTime, int state, String userEvaluation,
-            String workerEvaluation, int star, int isActivity) {
+    @Generated(hash = 2103365255)
+    public Order(Long id, @NotNull Long user_id, Long worker_id, Long company_id,
+            @NotNull String type, String area, String item_number,
+            @NotNull String userLocation, String money, String orderTime, String bookingTime,
+            String payTime, int state, String userEvaluation, String workerEvaluation,
+            int star, Long activity_id, int isActivity) {
         this.id = id;
         this.user_id = user_id;
         this.worker_id = worker_id;
         this.company_id = company_id;
         this.type = type;
         this.area = area;
+        this.item_number = item_number;
         this.userLocation = userLocation;
         this.money = money;
         this.orderTime = orderTime;
@@ -88,7 +81,20 @@ public class Order {
         this.userEvaluation = userEvaluation;
         this.workerEvaluation = workerEvaluation;
         this.star = star;
+        this.activity_id = activity_id;
         this.isActivity = isActivity;
+    }
+
+    @Generated(hash = 1105174599)
+    public Order() {
+    }
+
+    public String getItem_number() {
+        return item_number;
+    }
+
+    public void setItem_number(String item_number) {
+        this.item_number = item_number;
     }
 
     public Long getId() {
@@ -149,11 +155,11 @@ public class Order {
         this.type = type;
     }
 
-    public Float getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(Float area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
@@ -165,11 +171,11 @@ public class Order {
         this.userLocation = userLocation;
     }
 
-    public Float getMoney() {
+    public String getMoney() {
         return money;
     }
 
-    public void setMoney(Float money) {
+    public void setMoney(String money) {
         this.money = money;
     }
 
@@ -237,6 +243,14 @@ public class Order {
         this.isActivity = isActivity;
     }
 
+    public Long getActivity_id() {
+        return this.activity_id;
+    }
+
+    public void setActivity_id(Long activity_id) {
+        this.activity_id = activity_id;
+    }
+
     /**
      * Convenient call for {@link org.greenrobot.greendao.AbstractDao#refresh(Object)}.
      * Entity must attached to an entity context.
@@ -280,4 +294,33 @@ public class Order {
         myDao = daoSession != null ? daoSession.getOrderDao() : null;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", user=" + user +
+                ", worker_id=" + worker_id +
+                ", worker=" + worker +
+                ", company_id=" + company_id +
+                ", type='" + type + '\'' +
+                ", area='" + area + '\'' +
+                ", item_number='" + item_number + '\'' +
+                ", userLocation='" + userLocation + '\'' +
+                ", money='" + money + '\'' +
+                ", orderTime='" + orderTime + '\'' +
+                ", bookingTime='" + bookingTime + '\'' +
+                ", payTime='" + payTime + '\'' +
+                ", state=" + state +
+                ", userEvaluation='" + userEvaluation + '\'' +
+                ", workerEvaluation='" + workerEvaluation + '\'' +
+                ", star=" + star +
+                ", activity_id=" + activity_id +
+                ", isActivity=" + isActivity +
+                ", worker__resolvedKey=" + worker__resolvedKey +
+                ", user__resolvedKey=" + user__resolvedKey +
+                ", myDao=" + myDao +
+                ", daoSession=" + daoSession +
+                '}';
+    }
 }

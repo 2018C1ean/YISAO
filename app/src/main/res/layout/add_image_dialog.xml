@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhite"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <Button
+        android:id="@+id/camera"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/buttonPadding"
+        android:text="拍照"
+        android:textColor="@color/colorOrange"
+        android:background="@color/colorWhite"/>
+    <Button
+        android:id="@+id/album"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/buttonPadding"
+        android:layout_marginTop="@dimen/buttonMarginTop"
+        android:textColor="@color/colorOrange"
+        android:background="@color/colorWhite"
+        android:text="相册"/>
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/buttonPadding"
+        android:layout_marginTop="@dimen/buttonMarginTop"
+        android:textColor="@color/colorOrange"
+        android:background="@color/colorWhite"
+        android:text="取消"
+        />
+</LinearLayout>

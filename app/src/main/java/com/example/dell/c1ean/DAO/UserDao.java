@@ -32,6 +32,7 @@ public class UserDao extends AbstractDao<User, Long> {
         public final static Property Location1 = new Property(5, String.class, "location1", false, "LOCATION1");
         public final static Property Location2 = new Property(6, String.class, "location2", false, "LOCATION2");
         public final static Property Location3 = new Property(7, String.class, "location3", false, "LOCATION3");
+        public final static Property Background_img = new Property(8, String.class, "background_img", false, "BACKGROUND_IMG");
     }
 
 
@@ -54,7 +55,8 @@ public class UserDao extends AbstractDao<User, Long> {
                 "\"TEL\" TEXT NOT NULL ," + // 4: tel
                 "\"LOCATION1\" TEXT," + // 5: location1
                 "\"LOCATION2\" TEXT," + // 6: location2
-                "\"LOCATION3\" TEXT);"); // 7: location3
+                "\"LOCATION3\" TEXT," + // 7: location3
+                "\"BACKGROUND_IMG\" TEXT);"); // 8: background_img
     }
 
     /** Drops the underlying database table. */
@@ -98,6 +100,11 @@ public class UserDao extends AbstractDao<User, Long> {
         if (location3 != null) {
             stmt.bindString(8, location3);
         }
+ 
+        String background_img = entity.getBackground_img();
+        if (background_img != null) {
+            stmt.bindString(9, background_img);
+        }
     }
 
     @Override
@@ -135,6 +142,11 @@ public class UserDao extends AbstractDao<User, Long> {
         if (location3 != null) {
             stmt.bindString(8, location3);
         }
+ 
+        String background_img = entity.getBackground_img();
+        if (background_img != null) {
+            stmt.bindString(9, background_img);
+        }
     }
 
     @Override
@@ -152,7 +164,8 @@ public class UserDao extends AbstractDao<User, Long> {
             cursor.getString(offset + 4), // tel
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // location1
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // location2
-            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7) // location3
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // location3
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8) // background_img
         );
         return entity;
     }
@@ -167,6 +180,7 @@ public class UserDao extends AbstractDao<User, Long> {
         entity.setLocation1(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setLocation2(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setLocation3(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setBackground_img(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
      }
     
     @Override

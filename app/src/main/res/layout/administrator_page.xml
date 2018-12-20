@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorTheme"
+    android:fitsSystemWindows="true">
+    <TextView
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C1ean后端"
+        android:textSize="30sp"/>
+    <Button
+        android:text="公司信息管理"
+        android:id="@+id/insert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_button_shape"/>
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_button_shape"
+        android:text="查看数据库"/>
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/quit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_button_shape"
+        android:text="quit"/>
+</LinearLayout>

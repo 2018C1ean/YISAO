@@ -1,33 +1,32 @@
 package com.example.dell.c1ean.DAO;
 
-import com.example.dell.c1ean.Application.BaseAppliction;
+import com.example.dell.c1ean.Application.BaseApplication;
 import com.example.dell.c1ean.Bean.Company;
 import com.example.dell.c1ean.Bean.User;
 import com.example.dell.c1ean.Bean.Worker;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Eskii on 2018/11/30.
+ * Created by 李雯晴 on 2018/11/30.
  * 登录验证方法
  */
 
 public class LoginDAO {
 
-    private BaseAppliction baseAppliction;
+    private BaseApplication baseApplication;
     private UserDao userDao;
     private CompanyDao companyDao;
     private WorkerDao workerDao;
 
-    public LoginDAO(BaseAppliction baseAppliction) {
+    public LoginDAO(BaseApplication baseApplication) {
 
-        this.baseAppliction = baseAppliction;
-        userDao = baseAppliction.getUserDao();
-        companyDao = baseAppliction.getCompanyDao();
-        workerDao = baseAppliction.getWorkerDao();
+        this.baseApplication = baseApplication;
+        userDao = baseApplication.getUserDao();
+        companyDao = baseApplication.getCompanyDao();
+        workerDao = baseApplication.getWorkerDao();
     }
 
     /**
@@ -85,10 +84,30 @@ public class LoginDAO {
                 queryBuilder = companyDao.queryBuilder().where(CompanyDao.Properties.Company_tel.eq(tel),CompanyDao.Properties.Password.eq(password));
                 break;
         }
-        List list = queryBuilder.list();
-        if (list.size() > 0){
+
+        if (queryBuilder.list().size() > 0){
             return true;
         }else return false;
 
+    }
+
+    public Long getId(String type,String phone){
+
+        Long id = null;
+        switch (type){
+            case "用户":
+                User user = userDao.queryBuilder().where(UserDao.Properties.Tel.eq(phone)).unique();
+                id = user.getId();
+                break;
+            case "家政人员":
+                Worker worker = workerDao.queryBuilder().where(WorkerDao.Properties.Worker_tel.eq(phone)).unique();
+                id = worker.getWorker_id();
+                break;
+            case "家政公司":
+                Company company = companyDao.queryBuilder().where(CompanyDao.Properties.Company_tel.eq(phone)).unique();
+                id = company.getCompany_id();
+                break;
+        }
+        return id;
     }
 }

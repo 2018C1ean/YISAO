@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@mipmap/left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预定服务" />
+    </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/company_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/marginTop"
+                android:layout_marginStart="@dimen/marginTop"
+                android:layout_marginTop="@dimen/marginTop"
+                app:cardCornerRadius="@dimen/marginTop">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="150dp"
+                        app:cardCornerRadius="10dp">
+
+                        <ImageView
+                            android:id="@+id/activity_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@mipmap/order_img_test"
+                            android:scaleType="centerCrop" />
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:id="@+id/line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/company_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/activity_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="@dimen/typeTextSize" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/company_card"
+                android:layout_marginTop="@dimen/marginTop"
+                android:orientation="vertical"
+                android:padding="@dimen/marginTop">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/typeImgSize"
+                        android:layout_height="@dimen/typeImgSize"
+                        android:src="@mipmap/book_time" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="预定时间"
+                        android:textSize="@dimen/order_text_size" />
+
+                    <TextView
+                        android:id="@+id/book_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/order_textview_height"
+                        android:layout_marginStart="@dimen/marginTop"
+                        android:background="@drawable/text_noput"
+                        android:padding="5dp"
+                        android:gravity="center_horizontal|center_vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/type1"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/typeImgSize"
+                        android:layout_height="@dimen/typeImgSize"
+                        android:src="@mipmap/room" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="房间大小"
+                        android:textSize="@dimen/order_text_size" />
+
+                    <EditText
+                        android:id="@+id/room_size"
+                        android:layout_width="173dp"
+                        android:layout_height="@dimen/order_textview_height"
+                        android:inputType="number"
+                        android:layout_marginStart="@dimen/marginTop"
+                        android:background="@drawable/text_noput"
+                        android:entries="@array/room_size"
+                        android:textAlignment="center" />
+                    <TextView
+                        android:id="@+id/unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/order_textview_height"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/label_shape"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:lines="1"
+                        android:minWidth="@dimen/order_textview_height"
+                        android:padding="5dp"
+                        android:text="/平方米"
+                        android:textColor="@color/colorWhite" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/type2"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/typeImgSize"
+                        android:layout_height="@dimen/typeImgSize"
+                        android:src="@mipmap/room" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="数         量"
+                        android:textSize="@dimen/order_text_size" />
+                    <EditText
+                        android:id="@+id/clean_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/order_textview_height"
+                        android:background="@drawable/text_noput"
+                        android:layout_marginStart="@dimen/marginTop"
+                        android:padding="5dp"
+                        android:inputType="number"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/typeImgSize"
+                        android:layout_height="@dimen/typeImgSize"
+                        android:src="@mipmap/location_order" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="地         址"
+                        android:textSize="@dimen/order_text_size" />
+
+                    <TextView
+                        android:id="@+id/user_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="@dimen/marginTop"
+                        android:background="@drawable/text_noput"
+                        android:enabled="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="top"
+                        android:maxLines="10"
+                        android:minLines="5"
+                        android:padding="5dp"
+                        android:scrollbars="vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/typeImgSize"
+                        android:layout_height="@dimen/typeImgSize"
+                        android:src="@mipmap/money" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="服务估价"
+                        android:textSize="@dimen/order_text_size" />
+
+                    <TextView
+                        android:id="@+id/expect_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text=""
+                        android:textColor="@color/colorOrange"
+                        android:textSize="30sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    <Button
+    android:id="@+id/reserve"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/line2"
+    android:layout_centerInParent="true"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="@dimen/activityMarginTop"
+    android:background="@drawable/label_shape"
+    android:padding="10dp"
+    android:text="预定"
+    android:textColor="@color/colorWhite"
+    android:textSize="16sp" />
+</LinearLayout>
+
+

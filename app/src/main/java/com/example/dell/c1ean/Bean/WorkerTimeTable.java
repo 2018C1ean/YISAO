@@ -11,7 +11,8 @@ import com.example.dell.c1ean.DAO.WorkerTimeTableDao;
 import com.example.dell.c1ean.DAO.WorkerDao;
 
 /**
- * Created by Eskii on 2018/11/27.
+ * Created by 李雯晴 on 2018/11/27.
+ * 阿姨时间表
  */
 
 @Entity

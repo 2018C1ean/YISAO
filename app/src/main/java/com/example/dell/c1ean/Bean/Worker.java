@@ -11,7 +11,7 @@ import com.example.dell.c1ean.DAO.WorkerDao;
 import com.example.dell.c1ean.DAO.CompanyDao;
 
 /**
- * Created by Eskii on 2018/11/27.
+ * Created by 李雯晴 on 2018/11/27.
  */
 
 @Entity

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="@dimen/orderMarginTop"
+        android:layout_marginBottom="@dimen/marginTop"
+        android:layout_marginEnd="5dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/marginTop">
+    <TextView
+        android:id="@+id/company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:text="洋洋公司"
+        android:textColor="@color/colorBlack" />
+
+    <ImageView
+        android:id="@+id/company_detail"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_toEndOf="@id/company_name"
+        android:src="@mipmap/right" />
+
+    <TextView
+        android:id="@+id/order_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="交易成功"
+        android:textColor="@color/colorOrange" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/img"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/company_name"
+        android:layout_marginTop="@dimen/orderMarginTop"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:id="@+id/order_img"
+            android:layout_width="@dimen/orderImgSize"
+            android:layout_height="@dimen/orderImgSize"
+            android:scaleType="centerCrop" />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/activity_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/company_name"
+        android:layout_marginStart="@dimen/orderMarginTop"
+        android:layout_marginTop="@dimen/orderMarginTop"
+        android:layout_toEndOf="@id/img"
+        android:text="家居清洗"
+        android:padding="5dp"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/time_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/activity_describe"
+        android:layout_marginStart="@dimen/orderMarginTop"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_toRightOf="@id/img"
+        android:background="@mipmap/book_time" />
+
+    <TextView
+        android:id="@+id/booking_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_describe"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_toRightOf="@id/time_img"
+        android:text="2018年12月11日10点20分" />
+
+    <TextView
+        android:id="@+id/sum_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/booking_time"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="@dimen/orderMarginTop"
+        android:layout_toStartOf="@id/order_price"
+        android:text="共计："
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/order_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/booking_time"
+        android:layout_marginTop="@dimen/orderMarginTop"
+        android:text="￥100.00"
+        android:textColor="@color/colorOrange" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/order_price"
+        android:layout_marginTop="@dimen/orderMarginTop">
+
+        <TextView
+            android:id="@+id/delete_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/activity_type_btn_shape"
+            android:padding="8dp"
+            android:text="删除订单"
+            android:textSize="@dimen/orderTextSize"
+           android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/cancel_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/activity_type_btn_shape"
+            android:padding="8dp"
+            android:text="取消订单"
+            android:textSize="@dimen/orderTextSize"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/evaluation_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/activity_type_btn_shape"
+            android:padding="8dp"
+            android:text="评价订单"
+            android:textSize="@dimen/orderTextSize"
+            android:visibility="gone"
+            />
+
+    </LinearLayout></RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
