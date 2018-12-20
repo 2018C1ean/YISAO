@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/title"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/marginTop"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_height="wrap_content"
+            android:text="个人中心"
+            android:textColor="@color/colorTheme"/>
+        <include layout="@layout/line"/>
+    </LinearLayout>
+    <com.example.dell.c1ean.Util.PullToZoomScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include layout="@layout/user_page_halftop" />
+
+            <include layout="@layout/user_page_halfdown" />
+
+        </LinearLayout>
+    </com.example.dell.c1ean.Util.PullToZoomScrollView>
+</LinearLayout>

@@ -12,7 +12,7 @@ import com.example.dell.c1ean.DAO.OrderDao;
 import com.example.dell.c1ean.DAO.WorkerDao;
 
 /**
- * Created by Eskii on 2018/11/28.
+ * Created by 李雯晴 on 2018/11/28.
  * 订单金额分配表（主要参与者为阿姨和公司）
  */
 

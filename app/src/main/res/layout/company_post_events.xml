@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/imgSize"
+            android:layout_height="@dimen/imgSize"
+            android:src="@mipmap/left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发布活动"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activityMarginLeft"
+                android:layout_marginTop="@dimen/activityMarginTop"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="活动类型："
+                    android:textSize="@dimen/activityTextSize" />
+
+                <TextView
+                    android:id="@+id/activity_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/order_textview_height"
+                    android:background="@drawable/label_shape"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:padding="10dp"
+                    android:text="专业保洁"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line1"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="活动标题："
+                    android:textSize="@dimen/activityTextSize" />
+
+                <TextView
+                    android:id="@+id/activity_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/order_textview_height"
+                    android:background="@drawable/text_noput"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line0"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/jg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="价         格："
+                    android:textSize="@dimen/activityTextSize" />
+
+                <EditText
+                    android:id="@+id/activity_price"
+                    android:layout_width="150dp"
+                    android:layout_height="@dimen/order_textview_height"
+                    android:background="@drawable/text_noput"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="number"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/order_textview_height"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/label_shape"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:lines="1"
+                    android:minWidth="@dimen/order_textview_height"
+                    android:padding="5dp"
+                    android:text="\小时"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/ksrq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="开始日期："
+                    android:textSize="@dimen/activityTextSize" />
+
+                <TextView
+                    android:id="@+id/start_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/order_textview_height"
+                    android:background="@drawable/text_noput"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="5dp"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line3"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/jsrq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="结束日期："
+                    android:textSize="@dimen/activityTextSize" />
+
+                <TextView
+                    android:id="@+id/end_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/order_textview_height"
+                    android:background="@drawable/text_noput"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line4"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/cs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用户可使用次数："
+                    android:textSize="@dimen/activityTextSize" />
+
+                <RadioGroup
+                    android:id="@+id/user_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/single"
+                        style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="单次" />
+
+                    <RadioButton
+                        android:id="@+id/nolimit"
+                        style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="不限次" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line5"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/ms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="活动描述："
+                    android:textSize="@dimen/activityTextSize" />
+
+                <EditText
+                    android:id="@+id/activity_describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:background="@drawable/text_noput"
+                    android:enabled="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:maxLines="10"
+                    android:minLines="8"
+                    android:padding="5dp"
+                    android:scrollbars="vertical"
+                    android:textSize="@dimen/activityTextSize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line7"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_below="@id/line6"
+                android:layout_marginTop="@dimen/activityMarginTop"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="@dimen/orderImgSize"
+                    android:layout_height="@dimen/orderImgSize"
+                    android:background="@mipmap/activity_add"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="@dimen/orderImgSize"
+                    android:layout_height="@dimen/orderImgSize"
+                    android:layout_marginStart="10dp"
+                    android:background="@mipmap/activity_add"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/img3"
+                    android:layout_width="@dimen/orderImgSize"
+                    android:layout_height="@dimen/orderImgSize"
+                    android:layout_marginStart="10dp"
+                    android:background="@mipmap/activity_add"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/post"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line7"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/label_shape"
+                android:focusable="false"
+                android:padding="10dp"
+                android:text="发布"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activityTextSize" />
+
+            <LinearLayout
+                android:id="@+id/manage_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line7"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/label_shape"
+                    android:text="编辑"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/activityTextSize" />
+
+                <Button
+                    android:id="@+id/delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/marginTop"
+                    android:layout_weight="1"
+                    android:background="@drawable/label_shape"
+                    android:text="删除"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/activityTextSize" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

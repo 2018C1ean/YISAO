@@ -7,7 +7,7 @@ import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Generated;
 
 /**
- * Created by Eskii on 2018/11/28.
+ * Created by 李雯晴 on 2018/11/28.
  * 所有用户的钱包收入
  */
 

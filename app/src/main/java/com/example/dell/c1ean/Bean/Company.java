@@ -5,7 +5,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Generated;
 /**
- * Created by Eskii on 2018/11/28.
+ * Created by 李雯晴 on 2018/11/28.
  * 公司
  */
 

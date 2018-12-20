@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="@dimen/activityImgWidth"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+
+            <ImageView
+                android:id="@+id/activity_img"
+                android:layout_width="@dimen/activityImgWidth"
+                android:layout_height="@dimen/activityImgHeight" />
+
+            <TextView
+                android:id="@+id/activity_title"
+                android:layout_width="@dimen/activityImgWidth"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_img"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:lines="1"
+                android:text="全套家具清洁，专业家具保洁"
+                android:textSize="@dimen/textSmall" />
+
+            <LinearLayout
+                android:id="@+id/price_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/activity_title"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥"
+                    android:textColor="@color/colorOrange" />
+
+                <TextView
+                    android:id="@+id/activity_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45"
+                    android:textColor="@color/colorOrange" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/marginTop"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price_line"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/buyer_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="人已付款"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="@dimen/marginTop"
+                android:id="@+id/companyName"
+                android:layout_marginBottom="@dimen/marginTop"
+                android:layout_width="@dimen/activityImgWidth"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price_line"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:text="洋洋家政"
+                android:textSize="10sp" />
+        </RelativeLayout></android.support.v7.widget.CardView>
+</LinearLayout>

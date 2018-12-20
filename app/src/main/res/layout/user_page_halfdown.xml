@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <!--<android.support.v7.widget.CardView-->
+    <!--android:layout_width="@dimen/userPageCardViewWidth"-->
+    <!--android:layout_height="@dimen/userPageCardViewHeight"-->
+    <!--app:cardCornerRadius="20dp"-->
+    <!--app:cardElevation="10dp">-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/colorWhite">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/wallet_name"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignStart="@+id/balance_name"-->
+    <!--android:text="我的钱包"-->
+    <!--android:textSize="@dimen/userPageCardViewTitleTextSize" />-->
+
+    <!--<TextView-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:id="@+id/balance_name"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_below="@+id/wallet_name"-->
+    <!--android:layout_marginStart="20dp"-->
+    <!--android:text="余额"-->
+    <!--android:textSize="18sp" />-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_below="@id/balance_name"-->
+    <!--android:layout_marginBottom="30dp"-->
+    <!--android:layout_marginStart="20dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/balance_unit"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="￥"-->
+    <!--android:textColor="@color/colorOrange"-->
+    <!--android:textSize="25sp" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="52.0"-->
+    <!--android:textColor="@color/colorOrange"-->
+    <!--android:textSize="30dp" />-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_marginEnd="20dp"-->
+    <!--android:layout_marginBottom="10dp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
+    <!--<TextView-->
+    <!--android:id="@+id/see_detail"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="查看明细"/>-->
+    <!--<TextView-->
+    <!--android:id="@+id/recharge"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="去充值"-->
+    <!--android:layout_marginStart="20dp"/>-->
+    <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
+    <!--</android.support.v7.widget.CardView>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/wallet_img"
+                android:layout_width="@dimen/typeImgSize"
+                android:layout_height="@dimen/typeImgSize"
+                android:background="@mipmap/wallet" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="钱包" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorGray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/user_cards"
+                android:layout_width="@dimen/typeImgSize"
+                android:layout_height="@dimen/typeImgSize"
+                android:background="@mipmap/user_card" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卡包" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorGray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/user_integrate"
+                android:layout_width="@dimen/typeImgSize"
+                android:layout_height="@dimen/typeImgSize"
+                android:background="@mipmap/user_integrate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="积分" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/location_line"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/location_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/location" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="地址管理" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/account_manage"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/account_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/account_manage" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="账号管理" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5px"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorGray" />
+
+        <RelativeLayout
+            android:id="@+id/feedback"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/feedback_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/feedback" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="意见反馈" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/help"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/help_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="使用帮助" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/share"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/share_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/share" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="分享C1ean给好友" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/about_c1ean"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/about_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/about" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="关于C1ean" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/check_for_update"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/check_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/update" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="检查更新" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/give_a_praise"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/praise_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/good" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="给个好评" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+
+        <RelativeLayout
+            android:id="@+id/contact_us"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/contact_img"
+                    android:layout_width="@dimen/typeImgSize"
+                    android:layout_height="@dimen/typeImgSize"
+                    android:background="@mipmap/contact" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/userPageMarginLeft"
+                    android:text="联系我们" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/rightImgSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <include layout="@layout/line" />
+        <Button
+            android:id="@+id/change_account"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/marginTop"
+            android:layout_marginEnd="@dimen/marginTop"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_shape"
+            android:text="切换账号"
+            android:textColor="@color/colorWhite" />
+        <Button
+            android:id="@+id/out_account"
+            android:layout_marginBottom="@dimen/marginTop"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="退出登录"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/label_shape"
+            android:layout_marginEnd="@dimen/marginTop"
+            android:layout_marginStart="@dimen/marginTop"/>
+    </LinearLayout>
+</LinearLayout>

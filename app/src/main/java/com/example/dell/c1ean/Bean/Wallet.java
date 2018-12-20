@@ -5,7 +5,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 
 /**
- * Created by Eskii on 2018/11/28.
+ * Created by 李雯晴 on 2018/11/28.
  * 用户钱包
  */
 
@@ -14,7 +14,7 @@ public class Wallet {
 
     @Id
     private Long user_id;   //用户id(可为用户/阿姨/公司)
-    private String bank_account;    //银行卡号
+    private String bank_account;    //银行卡号  //不要了，就要支付宝
     private String alipay_account;  //支付宝账号
     private Float balance;  //余额
 

@@ -6,4 +6,11 @@
         <item>家政人员</item>
         <item>家政公司</item>
     </string-array>
+    <string-array name="room_size">
+        <item>0~80平方米</item>
+        <item>80~100平方米</item>
+        <item>120~160平方米</item>
+        <item>160~200平方米</item>
+        <item>大于200平米</item>
+    </string-array>
 </resources>

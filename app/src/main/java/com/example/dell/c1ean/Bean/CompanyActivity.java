@@ -6,7 +6,7 @@ import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Generated;
 
 /**
- * Created by Eskii on 2018/11/28.
+ * Created by 李雯晴 on 2018/11/28.
  * 家政公司发布的活动
  */
 
@@ -20,7 +20,10 @@ public class CompanyActivity {
     @NotNull
     private String type;    //活动类型
     @NotNull
-    private String img; //活动照片
+    private String img1; //活动照片1
+    private String img2; //活动照片2
+    private String img3; //活动照片3
+    private String unit;    //计价单位
     @NotNull
     private String start_time;  //活动开始时间
     @NotNull
@@ -30,29 +33,72 @@ public class CompanyActivity {
     @NotNull
     private Long company_id;    //举办的公司id
     @NotNull
-    private int uses;   //用户可使用次数
+    private String uses;   //用户可使用次数
+    @NotNull
+    private String activity_decribes;
 
-
-    @Generated(hash = 2144064723)
-    public CompanyActivity(Long id, @NotNull String title, @NotNull String type,
-            @NotNull String img, @NotNull String start_time,
-            @NotNull String end_time, @NotNull Float price,
-            @NotNull Long company_id, int uses) {
+    @Generated(hash = 1501661408)
+    public CompanyActivity(Long id, @NotNull String title, @NotNull String type, @NotNull String img1, String img2, String img3, String unit,
+            @NotNull String start_time, @NotNull String end_time, @NotNull Float price, @NotNull Long company_id, @NotNull String uses,
+            @NotNull String activity_decribes) {
         this.id = id;
         this.title = title;
         this.type = type;
-        this.img = img;
+        this.img1 = img1;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.unit = unit;
         this.start_time = start_time;
         this.end_time = end_time;
         this.price = price;
         this.company_id = company_id;
         this.uses = uses;
+        this.activity_decribes = activity_decribes;
     }
 
     @Generated(hash = 1389486425)
     public CompanyActivity() {
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getImg1() {
+        return img1;
+    }
+
+    public void setImg1(String img1) {
+        this.img1 = img1;
+    }
+
+    public String getImg2() {
+        return img2;
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
+    }
+
+    public String getImg3() {
+        return img3;
+    }
+
+    public void setImg3(String img3) {
+        this.img3 = img3;
+    }
+
+    public String getActivity_decribes() {
+        return activity_decribes;
+    }
+
+    public void setActivity_decribes(String activity_decribes) {
+        this.activity_decribes = activity_decribes;
+    }
 
     public Long getId() {
         return id;
@@ -76,14 +122,6 @@ public class CompanyActivity {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public String getStart_time() {
@@ -118,11 +156,17 @@ public class CompanyActivity {
         this.company_id = company_id;
     }
 
-    public int getUses() {
+    public String getUses() {
         return uses;
     }
 
-    public void setUses(int uses) {
+    public void setUses(String uses) {
         this.uses = uses;
+    }
+
+    @Override
+    public String toString() {
+        return getId()+"\n"+getImg1()+"\n"+getImg2()+"\n"+getImg3()+"\n"+getTitle()+"\n"+getType()+"\n"+getStart_time()+"\n"+getStart_time()+"\n"
+                +getPrice()+"\n"+getUses()+"\n"+getCompany_id()+"\n";
     }
 }

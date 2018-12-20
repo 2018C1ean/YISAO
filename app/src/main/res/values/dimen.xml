@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="imgSize">30dp</dimen>
+    <dimen name="addImgSize">30dp</dimen>
+    <dimen name="cardElevation">5dp</dimen>
+    <dimen name="activityMarginTop">30dp</dimen>
+    <dimen name="activityTextSize">16sp</dimen>
+    <dimen name="activityMarginLeft">20dp</dimen>
+    <dimen name="buttonWidth">250dp</dimen>
+    <dimen name="buttonMarginTop">10dp</dimen>
+    <dimen name="buttonPadding">10dp</dimen>
+    <dimen name="activityImgWidth">160dp</dimen>
+    <dimen name="activityImgHeight">125dp</dimen>
+    <dimen name="activityCardHeight">220dp</dimen>
+    <dimen name="textSmall">12sp</dimen>
+    <dimen name="marginBottom">20dp</dimen>
+    <dimen name="typeImgSize">30dp</dimen>
+    <dimen name="typeSize">50dp</dimen>
+    <dimen name="typeTextSize">11sp</dimen>
+    <dimen name="typeMarginTop">2dp</dimen>
+    <dimen name="orderImgSize">100dp</dimen>
+    <dimen name="orderMarginTop">15dp</dimen>
+    <dimen name="orderTextSize">13sp</dimen>
+    <dimen name="userPageCardViewWidth">350dp</dimen>
+    <dimen name="userPageCardViewHeight">150dp</dimen>
+    <dimen name="userPageCardViewTitleTextSize">20sp</dimen>
+    <dimen name="userPageMarginLeft">5dp</dimen>
+    <dimen name="rightImgSize">20dp</dimen>
+    <dimen name="marginTop">10dp</dimen>
+    <dimen name="order_text_size">16sp</dimen>
+    <dimen name="order_textview_height">45dp</dimen>
+</resources>

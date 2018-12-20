@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/colorTheme"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:layout_marginBottom="@dimen/marginTop"
+            android:textColor="@color/colorTheme"/>
+        <include layout="@layout/line"/>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/quick_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="rotate"
+        android:src="@mipmap/c1ean_logo"
+        app:backgroundTint="@color/colorTheme"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="@color/colorGray" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:padding="@dimen/marginTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp">
+
+                    <com.youth.banner.Banner
+                        android:id="@+id/banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="208dp" />
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <com.example.dell.c1ean.Util.VerticalScrollLayout
+                android:id="@+id/buys_scroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line"
+                app:vsl_animDuration="800"
+                app:vsl_isCusDuration="true"
+                app:vsl_sleepTime="3000" />
+
+            <LinearLayout
+                android:id="@+id/type_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buys_scroll"
+                android:padding="@dimen/marginTop"
+                android:background="@drawable/modle_shape"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
+                    android:text="为您提供专业优质的服务"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTheme" />
+
+                <RelativeLayout
+                    android:id="@+id/activity_types"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/line1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/typeSize"
+                            android:layout_height="@dimen/typeSize"
+                            android:background="@drawable/activity_type_btn_shape"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:id="@+id/type1"
+                                android:layout_width="@dimen/typeImgSize"
+                                android:layout_height="@dimen/typeImgSize"
+                                android:background="@mipmap/zybj" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="专业保洁"
+                            android:textColor="@color/colorTheme"
+                            android:textSize="@dimen/typeTextSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_toRightOf="@id/line1"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/typeSize"
+                            android:layout_height="@dimen/typeSize"
+                            android:background="@drawable/activity_type_btn_shape"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="5dp">
+
+                            <ImageView
+                                android:id="@+id/type2"
+                                android:layout_width="@dimen/typeImgSize"
+                                android:layout_height="@dimen/typeImgSize"
+                                android:background="@mipmap/jdqx" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/typeMarginTop"
+                            android:text="家电清洗"
+                            android:textColor="@color/colorTheme"
+                            android:textSize="@dimen/typeTextSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_toRightOf="@id/line2"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/typeSize"
+                            android:layout_height="@dimen/typeSize"
+                            android:background="@drawable/activity_type_btn_shape"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="5dp">
+
+                            <ImageView
+                                android:id="@+id/type3"
+                                android:layout_width="@dimen/typeImgSize"
+                                android:layout_height="@dimen/typeImgSize"
+                                android:background="@mipmap/jjyh" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/typeMarginTop"
+                            android:text="家居养护"
+                            android:textColor="@color/colorTheme"
+                            android:textSize="@dimen/typeTextSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_toRightOf="@id/line3"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/typeSize"
+                            android:layout_height="@dimen/typeSize"
+                            android:background="@drawable/activity_type_btn_shape"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="5dp">
+
+                            <ImageView
+                                android:id="@+id/type4"
+                                android:layout_width="@dimen/typeImgSize"
+                                android:layout_height="@dimen/typeImgSize"
+                                android:background="@mipmap/xhfw" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/typeMarginTop"
+                            android:text="洗护服务"
+                            android:textColor="@color/colorTheme"
+                            android:textSize="@dimen/typeTextSize" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/type_line"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/modle_shape"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="—— 猜你喜欢 ——"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorOrange" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
