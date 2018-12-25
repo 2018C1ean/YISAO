@@ -13,6 +13,7 @@ import com.example.dell.c1ean.Application.BaseApplication;
 import com.example.dell.c1ean.Application.SystemApplication;
 import com.example.dell.c1ean.Bean.Company;
 import com.example.dell.c1ean.DAO.CompanyDao;
+import com.example.dell.c1ean.DAO.UserWalletDao;
 import com.example.dell.c1ean.R;
 
 import java.util.regex.Matcher;
@@ -28,6 +29,7 @@ public class AddCompanyActivity extends AppCompatActivity {
     private TextInputLayout code, tel, name, location, introduction;
     private Button addCompany, back;
     private CompanyDao companyDao;
+//    private UserWalletDao userWalletDao;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

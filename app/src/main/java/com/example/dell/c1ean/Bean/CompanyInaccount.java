@@ -3,20 +3,18 @@ package com.example.dell.c1ean.Bean;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
-import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Generated;
 
 /**
- * Created by 李雯晴 on 2018/11/28.
- * 所有用户的钱包收入
+ * Created by 李雯晴 on 2018/12/21.
  */
 
 @Entity
-public class UserInaccount {
+public class CompanyInaccount {
 
     @Id
     private Long id;
-    private Long user_id;   //用户id
+    private Long company_id;   //用户id
     @NotNull
     private String time;    //充钱时间
     @NotNull
@@ -24,18 +22,18 @@ public class UserInaccount {
     @NotNull
     private String Payer;   //支付方名字
 
-    @Generated(hash = 1891856248)
-    public UserInaccount(Long id, Long user_id, @NotNull String time,
+    @Generated(hash = 351849520)
+    public CompanyInaccount(Long id, Long company_id, @NotNull String time,
             @NotNull Float money, @NotNull String Payer) {
         this.id = id;
-        this.user_id = user_id;
+        this.company_id = company_id;
         this.time = time;
         this.money = money;
         this.Payer = Payer;
     }
 
-    @Generated(hash = 1042195721)
-    public UserInaccount() {
+    @Generated(hash = 1648505155)
+    public CompanyInaccount() {
     }
 
     public Long getId() {
@@ -46,12 +44,12 @@ public class UserInaccount {
         this.id = id;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getCompany_id() {
+        return company_id;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setCompany_id(Long company_id) {
+        this.company_id = company_id;
     }
 
     public String getTime() {

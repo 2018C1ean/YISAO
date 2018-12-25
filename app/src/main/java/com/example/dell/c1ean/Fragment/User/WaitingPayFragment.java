@@ -9,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dell.c1ean.Adapter.OrderListAdapter;
 import com.example.dell.c1ean.Application.BaseApplication;
@@ -18,6 +20,7 @@ import com.example.dell.c1ean.Bean.Order;
 import com.example.dell.c1ean.DAO.CompanyActivityDao;
 import com.example.dell.c1ean.DAO.CompanyDao;
 import com.example.dell.c1ean.DAO.OrderDao;
+import com.example.dell.c1ean.DAO.UserInaccountDao;
 import com.example.dell.c1ean.R;
 
 import java.util.ArrayList;
@@ -37,6 +40,7 @@ public class WaitingPayFragment extends Fragment {
     private TextView textView;
     private OrderListAdapter orderListAdapter;
     private ListView listView;
+    private UserInaccountDao userInaccountDao;
 
     @Nullable
     @Override
@@ -50,6 +54,7 @@ public class WaitingPayFragment extends Fragment {
         companyActivityDao = ((BaseApplication) getActivity().getApplication()).getCompanyActivityDao();
         companyDao = ((BaseApplication) getActivity().getApplication()).getCompanyDao();
         orderDao = ((BaseApplication) getActivity().getApplication()).getOrderDao();
+        userInaccountDao = ((BaseApplication) getActivity().getApplication()).getUserInaccountDao();
 
         setData();
         initView();
@@ -67,8 +72,14 @@ public class WaitingPayFragment extends Fragment {
     private void initView() {
         if (orderList.size() >= 1) {
             textView.setVisibility(View.INVISIBLE);
-            orderListAdapter = new OrderListAdapter(getContext(), orderList, companyDao, companyActivityDao);
+            orderListAdapter = new OrderListAdapter(getContext(), orderList, companyDao, companyActivityDao,orderDao,userInaccountDao);
             listView.setAdapter(orderListAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(getActivity(), orderList.get(position).toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }else {
             textView.setVisibility(View.VISIBLE);
 

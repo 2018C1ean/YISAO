@@ -21,7 +21,7 @@ import java.util.List;
  * 查看用户的评价
  */
 
-public class EvaluationsActivity extends AppCompatActivity {
+public class AllEvaluationsActivity extends AppCompatActivity {
 
     private ImageView back;
     private ListView listView;

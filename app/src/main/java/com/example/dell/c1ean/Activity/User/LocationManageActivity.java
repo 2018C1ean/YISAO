@@ -58,6 +58,8 @@ public class LocationManageActivity extends AppCompatActivity {
             isOrderAddLocation = "no";
         }
 
+//        Toast.makeText(LocationManageActivity.this, activity_id+"", Toast.LENGTH_SHORT).show();
+
         back = findViewById(R.id.back);
         linearLayout = findViewById(R.id.button_line);
         update = findViewById(R.id.update);
@@ -186,7 +188,7 @@ public class LocationManageActivity extends AppCompatActivity {
                 String t = location_title.getText().toString();
                 String d = location_detail.getText().toString();
 
-                if (activity_id == null) {
+                if (!isOrderAddLocation.equals("add_location")) {
                     if (t.isEmpty()) {
                         Toast.makeText(LocationManageActivity.this, "地区不能为空", Toast.LENGTH_SHORT).show();
                     } else {
@@ -196,10 +198,15 @@ public class LocationManageActivity extends AppCompatActivity {
                             User user = userDao.queryBuilder().where(UserDao.Properties.Id.eq(user_id)).unique();
 
                             if (n == 3) {
+                                Toast.makeText(LocationManageActivity.this, "3", Toast.LENGTH_SHORT).show();
                                 user.setLocation1(t + "&" + d);
                             } else if (n == 2) {
+                                Toast.makeText(LocationManageActivity.this, "2", Toast.LENGTH_SHORT).show();
+
                                 user.setLocation2(t + "&" + d);
                             } else {
+                                Toast.makeText(LocationManageActivity.this, "1", Toast.LENGTH_SHORT).show();
+
                                 user.setLocation3(t + "&" + d);
                             }
 
@@ -209,6 +216,7 @@ public class LocationManageActivity extends AppCompatActivity {
                             Toast.makeText(LocationManageActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LocationManageActivity.this, ShowLocationActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                     }
                 } else {
@@ -231,7 +239,6 @@ public class LocationManageActivity extends AppCompatActivity {
                             finish();
                         }
                     }
-
                 }
 
             }
@@ -263,6 +270,8 @@ public class LocationManageActivity extends AppCompatActivity {
                 Intent intent = new Intent(LocationManageActivity.this, OrderActivity.class);
                 intent.putExtras(bundle);
                 setResult(99, intent);
+                finish();
+            }else {
                 finish();
             }
         }

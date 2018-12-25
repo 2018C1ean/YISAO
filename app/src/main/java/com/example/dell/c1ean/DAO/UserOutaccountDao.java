@@ -24,10 +24,12 @@ public class UserOutaccountDao extends AbstractDao<UserOutaccount, Long> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property User_id = new Property(0, Long.class, "user_id", true, "_id");
-        public final static Property Time = new Property(1, String.class, "time", false, "TIME");
-        public final static Property Money = new Property(2, float.class, "money", false, "MONEY");
-        public final static Property Payee = new Property(3, String.class, "Payee", false, "PAYEE");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
+        public final static Property User_id = new Property(1, Long.class, "user_id", false, "USER_ID");
+        public final static Property Payer = new Property(2, String.class, "payer", false, "PAYER");
+        public final static Property Time = new Property(3, String.class, "time", false, "TIME");
+        public final static Property Money = new Property(4, String.class, "money", false, "MONEY");
+        public final static Property Payee = new Property(5, String.class, "Payee", false, "PAYEE");
     }
 
 
@@ -43,10 +45,12 @@ public class UserOutaccountDao extends AbstractDao<UserOutaccount, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"USER_OUTACCOUNT\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY ," + // 0: user_id
-                "\"TIME\" TEXT NOT NULL ," + // 1: time
-                "\"MONEY\" REAL NOT NULL ," + // 2: money
-                "\"PAYEE\" TEXT NOT NULL );"); // 3: Payee
+                "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
+                "\"USER_ID\" INTEGER," + // 1: user_id
+                "\"PAYER\" TEXT," + // 2: payer
+                "\"TIME\" TEXT NOT NULL ," + // 3: time
+                "\"MONEY\" TEXT," + // 4: money
+                "\"PAYEE\" TEXT NOT NULL );"); // 5: Payee
     }
 
     /** Drops the underlying database table. */
@@ -59,26 +63,54 @@ public class UserOutaccountDao extends AbstractDao<UserOutaccount, Long> {
     protected final void bindValues(DatabaseStatement stmt, UserOutaccount entity) {
         stmt.clearBindings();
  
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
+ 
         Long user_id = entity.getUser_id();
         if (user_id != null) {
-            stmt.bindLong(1, user_id);
+            stmt.bindLong(2, user_id);
         }
-        stmt.bindString(2, entity.getTime());
-        stmt.bindDouble(3, entity.getMoney());
-        stmt.bindString(4, entity.getPayee());
+ 
+        String payer = entity.getPayer();
+        if (payer != null) {
+            stmt.bindString(3, payer);
+        }
+        stmt.bindString(4, entity.getTime());
+ 
+        String money = entity.getMoney();
+        if (money != null) {
+            stmt.bindString(5, money);
+        }
+        stmt.bindString(6, entity.getPayee());
     }
 
     @Override
     protected final void bindValues(SQLiteStatement stmt, UserOutaccount entity) {
         stmt.clearBindings();
  
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
+ 
         Long user_id = entity.getUser_id();
         if (user_id != null) {
-            stmt.bindLong(1, user_id);
+            stmt.bindLong(2, user_id);
         }
-        stmt.bindString(2, entity.getTime());
-        stmt.bindDouble(3, entity.getMoney());
-        stmt.bindString(4, entity.getPayee());
+ 
+        String payer = entity.getPayer();
+        if (payer != null) {
+            stmt.bindString(3, payer);
+        }
+        stmt.bindString(4, entity.getTime());
+ 
+        String money = entity.getMoney();
+        if (money != null) {
+            stmt.bindString(5, money);
+        }
+        stmt.bindString(6, entity.getPayee());
     }
 
     @Override
@@ -89,32 +121,36 @@ public class UserOutaccountDao extends AbstractDao<UserOutaccount, Long> {
     @Override
     public UserOutaccount readEntity(Cursor cursor, int offset) {
         UserOutaccount entity = new UserOutaccount( //
-            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // user_id
-            cursor.getString(offset + 1), // time
-            cursor.getFloat(offset + 2), // money
-            cursor.getString(offset + 3) // Payee
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1), // user_id
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // payer
+            cursor.getString(offset + 3), // time
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // money
+            cursor.getString(offset + 5) // Payee
         );
         return entity;
     }
      
     @Override
     public void readEntity(Cursor cursor, UserOutaccount entity, int offset) {
-        entity.setUser_id(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setTime(cursor.getString(offset + 1));
-        entity.setMoney(cursor.getFloat(offset + 2));
-        entity.setPayee(cursor.getString(offset + 3));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
+        entity.setUser_id(cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1));
+        entity.setPayer(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setTime(cursor.getString(offset + 3));
+        entity.setMoney(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setPayee(cursor.getString(offset + 5));
      }
     
     @Override
     protected final Long updateKeyAfterInsert(UserOutaccount entity, long rowId) {
-        entity.setUser_id(rowId);
+        entity.setId(rowId);
         return rowId;
     }
     
     @Override
     public Long getKey(UserOutaccount entity) {
         if(entity != null) {
-            return entity.getUser_id();
+            return entity.getId();
         } else {
             return null;
         }
@@ -122,7 +158,7 @@ public class UserOutaccountDao extends AbstractDao<UserOutaccount, Long> {
 
     @Override
     public boolean hasKey(UserOutaccount entity) {
-        return entity.getUser_id() != null;
+        return entity.getId() != null;
     }
 
     @Override

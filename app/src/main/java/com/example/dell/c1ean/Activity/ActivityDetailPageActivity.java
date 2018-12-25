@@ -1,6 +1,5 @@
 package com.example.dell.c1ean.Activity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +13,7 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.dell.c1ean.Activity.Company.ManageActivityActivity;
-import com.example.dell.c1ean.Activity.User.EvaluationsActivity;
+import com.example.dell.c1ean.Activity.User.AllEvaluationsActivity;
 import com.example.dell.c1ean.Activity.User.OrderActivity;
 import com.example.dell.c1ean.Application.BaseApplication;
 import com.example.dell.c1ean.Application.SystemApplication;
@@ -137,7 +135,7 @@ public class ActivityDetailPageActivity extends AppCompatActivity {
         evaluation_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityDetailPageActivity.this, EvaluationsActivity.class);
+                Intent intent = new Intent(ActivityDetailPageActivity.this, AllEvaluationsActivity.class);
                 intent.putExtra("activity_id", activity_id);
                 startActivity(intent);
             }

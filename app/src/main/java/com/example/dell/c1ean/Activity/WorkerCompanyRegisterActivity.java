@@ -40,7 +40,6 @@ public class WorkerCompanyRegisterActivity extends AppCompatActivity {
     private RegisterDAO registerDAO;
     private String type;
     private BaseApplication baseApplication;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +103,10 @@ public class WorkerCompanyRegisterActivity extends AppCompatActivity {
                                     } else {
 
                                         registerDAO.setPassword(type, phone, pwd);    //设置密码
+
+                                        //创建钱包
+
+
                                         Toast.makeText(WorkerCompanyRegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                                         Intent intent1 = new Intent(WorkerCompanyRegisterActivity.this, LoginActivity.class);
                                         startActivity(intent1);

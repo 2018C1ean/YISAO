@@ -14,27 +14,37 @@ import org.greenrobot.greendao.annotation.Generated;
 public class UserOutaccount {
 
     @Id
-    private Long user_id;   //用户id(可为用户/阿姨/公司)
+    private Long id;
+    private Long user_id;   //用户id
+    private String payer;   //使用的支付方式（钱包/支付宝）
     @NotNull
     private String time;    //支出时间
-    @NotNull
-    private Float money;    //金额
+    private String money;    //金额
     @NotNull
     private String Payee;   //收款方名字
 
-    @Generated(hash = 1424502097)
-    public UserOutaccount(Long user_id, @NotNull String time, @NotNull Float money,
-            @NotNull String Payee) {
+    @Generated(hash = 1652562125)
+    public UserOutaccount(Long id, Long user_id, String payer,
+            @NotNull String time, String money, @NotNull String Payee) {
+        this.id = id;
         this.user_id = user_id;
+        this.payer = payer;
         this.time = time;
         this.money = money;
         this.Payee = Payee;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Generated(hash = 2035708419)
     public UserOutaccount() {
     }
-
     public Long getUser_id() {
         return user_id;
     }
@@ -51,13 +61,6 @@ public class UserOutaccount {
         this.time = time;
     }
 
-    public Float getMoney() {
-        return money;
-    }
-
-    public void setMoney(Float money) {
-        this.money = money;
-    }
 
     public String getPayee() {
         return Payee;
@@ -65,5 +68,33 @@ public class UserOutaccount {
 
     public void setPayee(String payee) {
         Payee = payee;
+    }
+
+    public String getPayer() {
+        return this.payer;
+    }
+
+    public void setPayer(String payer) {
+        this.payer = payer;
+    }
+
+    public String getMoney() {
+        return this.money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "UserOutaccount{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", payer='" + payer + '\'' +
+                ", time='" + time + '\'' +
+                ", money='" + money + '\'' +
+                ", Payee='" + Payee + '\'' +
+                '}';
     }
 }

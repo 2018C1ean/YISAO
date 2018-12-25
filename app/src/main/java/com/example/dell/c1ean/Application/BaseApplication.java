@@ -3,8 +3,10 @@ package com.example.dell.c1ean.Application;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.dell.c1ean.Bean.UserWallet;
 import com.example.dell.c1ean.DAO.CompanyActivityDao;
 import com.example.dell.c1ean.DAO.CompanyDao;
+import com.example.dell.c1ean.DAO.CompanyInaccountDao;
 import com.example.dell.c1ean.DAO.DaoMaster;
 import com.example.dell.c1ean.DAO.DaoSession;
 import com.example.dell.c1ean.DAO.OrderDao;
@@ -12,7 +14,8 @@ import com.example.dell.c1ean.DAO.OrderPaymentDao;
 import com.example.dell.c1ean.DAO.UserDao;
 import com.example.dell.c1ean.DAO.UserInaccountDao;
 import com.example.dell.c1ean.DAO.UserOutaccountDao;
-import com.example.dell.c1ean.DAO.WalletDao;
+import com.example.dell.c1ean.DAO.UserWalletDao;
+import com.example.dell.c1ean.DAO.WokerInaccountDao;
 import com.example.dell.c1ean.DAO.WorkerDao;
 import com.example.dell.c1ean.DAO.WorkerTimeTableDao;
 
@@ -30,7 +33,9 @@ public class BaseApplication extends Application {
     private UserDao userDao;
     private UserInaccountDao userInaccountDao;
     private UserOutaccountDao userOutaccountDao;
-    private WalletDao walletDao;
+    private WokerInaccountDao wokerInaccountDao;
+    private CompanyInaccountDao companyInaccountDao;
+    private UserWalletDao userWalletDao;
     private WorkerDao workerDao;
     private WorkerTimeTableDao workerTimeTableDao;
     private Long USER_ID;
@@ -50,10 +55,11 @@ public class BaseApplication extends Application {
         userDao = getDaoSession("USER").getUserDao();
         userInaccountDao = getDaoSession("USER_INACCOUNT").getUserInaccountDao();
         userOutaccountDao = getDaoSession("USER_OUTACCOUNT").getUserOutaccountDao();
-        walletDao = getDaoSession("WALLET").getWalletDao();
+        userWalletDao = getDaoSession("USER_WALLET").getUserWalletDao();
         workerDao = getDaoSession("WORKER").getWorkerDao();
         workerTimeTableDao = getDaoSession("WORKER_TIME_TABLE").getWorkerTimeTableDao();
-
+        wokerInaccountDao = getDaoSession("WOKER_INACCOUNT").getWokerInaccountDao();
+        companyInaccountDao = getDaoSession("COMPANY_INACCOUNT").getCompanyInaccountDao();
     }
 
     private DaoSession getDaoSession(String tbName){
@@ -80,6 +86,22 @@ public class BaseApplication extends Application {
 
     public void setCompanyActivityDao(com.example.dell.c1ean.DAO.CompanyActivityDao companyActivityDao) {
         this.companyActivityDao = companyActivityDao;
+    }
+
+    public WokerInaccountDao getWokerInaccountDao() {
+        return wokerInaccountDao;
+    }
+
+    public void setWokerInaccountDao(WokerInaccountDao wokerInaccountDao) {
+        this.wokerInaccountDao = wokerInaccountDao;
+    }
+
+    public CompanyInaccountDao getCompanyInaccountDao() {
+        return companyInaccountDao;
+    }
+
+    public void setCompanyInaccountDao(CompanyInaccountDao companyInaccountDao) {
+        this.companyInaccountDao = companyInaccountDao;
     }
 
     public CompanyDao getCompanyDao() {
@@ -130,12 +152,12 @@ public class BaseApplication extends Application {
         this.userOutaccountDao = userOutaccountDao;
     }
 
-    public WalletDao getWalletDao() {
-        return walletDao;
+    public UserWalletDao getUserWalletDao() {
+        return userWalletDao;
     }
 
-    public void setWalletDao(WalletDao walletDao) {
-        this.walletDao = walletDao;
+    public void setUserWalletDao(UserWalletDao userWalletDao) {
+        this.userWalletDao = userWalletDao;
     }
 
     public WorkerDao getWorkerDao() {

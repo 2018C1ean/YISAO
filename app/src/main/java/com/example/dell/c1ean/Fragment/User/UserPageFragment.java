@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.example.dell.c1ean.Activity.LoginActivity;
 import com.example.dell.c1ean.Activity.RegisterTypeActivity;
 import com.example.dell.c1ean.Activity.User.ShowLocationActivity;
+import com.example.dell.c1ean.Activity.User.UserWalletActivity;
 import com.example.dell.c1ean.Application.BaseApplication;
 import com.example.dell.c1ean.Bean.User;
 import com.example.dell.c1ean.DAO.UserDao;
@@ -72,6 +73,7 @@ public class UserPageFragment extends Fragment {
     private TextView user_name;
     private UserDao userDao;
     private User user;
+    private LinearLayout user_wallet,user_cards,user_integrate;
     private RelativeLayout user_location, account_manage, feedback, help, share, about, check_for_update, give_a_paise, contact_us;
 
     @Nullable
@@ -102,6 +104,9 @@ public class UserPageFragment extends Fragment {
         check_for_update = view.findViewById(R.id.check_for_update);
         give_a_paise = view.findViewById(R.id.give_a_praise);
         contact_us = view.findViewById(R.id.contact_us);
+        user_wallet = view.findViewById(R.id.user_wallet);
+        user_cards = view.findViewById(R.id.user_cards);
+        user_integrate = view.findViewById(R.id.user_integrate);
 
         setView();
         return view;
@@ -145,6 +150,14 @@ public class UserPageFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), ShowLocationActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            user_wallet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), UserWalletActivity.class);
                     startActivity(intent);
                 }
             });

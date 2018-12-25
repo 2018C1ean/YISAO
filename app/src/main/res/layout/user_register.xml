@@ -17,21 +17,23 @@
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@mipmap/left" />
     </LinearLayout>
 
-    <include layout="@layout/line" />
 
     <TextView
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/app_name"
         android:textColor="@color/colorTheme"
         android:textSize="50sp"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:paddingBottom="20dp"/>
+    <include layout="@layout/line" />
 
     <LinearLayout
         android:id="@+id/line1"

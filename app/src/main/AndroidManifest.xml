@@ -38,12 +38,14 @@
         <activity android:name=".Activity.Company.ManageActivityActivity" />
         <activity android:name=".Activity.ActivityDetailPageActivity" />
         <activity android:name=".Activity.User.QuickOrderActivity" />
-        <activity android:name=".Activity.User.EvaluationsActivity" />
+        <activity android:name=".Activity.User.AllEvaluationsActivity" />
         <activity android:name=".Activity.User.OrderActivity" />
         <activity android:name=".Activity.User.PayedActivity"/>
         <activity android:name=".Activity.User.ShowLocationActivity"/>
         <activity android:name=".Activity.User.LocationManageActivity"/>
         <activity android:name=".Activity.User.WaitPayActivity"/>
+        <activity android:name=".Activity.User.UserEvaluationActivity"/>
+        <activity android:name=".Activity.User.UserWalletActivity"/>
     </application>
 
 </manifest>

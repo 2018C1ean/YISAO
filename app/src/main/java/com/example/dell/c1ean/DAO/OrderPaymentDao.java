@@ -30,15 +30,17 @@ public class OrderPaymentDao extends AbstractDao<OrderPayment, Long> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property Order_id = new Property(0, Long.class, "order_id", true, "_id");
-        public final static Property Order_money = new Property(1, float.class, "order_money", false, "ORDER_MONEY");
-        public final static Property Worker_id = new Property(2, long.class, "worker_id", false, "WORKER_ID");
-        public final static Property Worker_money = new Property(3, float.class, "worker_money", false, "WORKER_MONEY");
-        public final static Property Company_id = new Property(4, long.class, "company_id", false, "COMPANY_ID");
-        public final static Property Company_money = new Property(5, float.class, "company_money", false, "COMPANY_MONEY");
-        public final static Property Order_time = new Property(6, String.class, "order_time", false, "ORDER_TIME");
-        public final static Property Paytoworker_time = new Property(7, String.class, "paytoworker_time", false, "PAYTOWORKER_TIME");
-        public final static Property Paytocompany_time = new Property(8, String.class, "paytocompany_time", false, "PAYTOCOMPANY_TIME");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
+        public final static Property Order_id = new Property(1, Long.class, "order_id", false, "ORDER_ID");
+        public final static Property Order_money = new Property(2, float.class, "order_money", false, "ORDER_MONEY");
+        public final static Property Worker_id = new Property(3, long.class, "worker_id", false, "WORKER_ID");
+        public final static Property Worker_money = new Property(4, float.class, "worker_money", false, "WORKER_MONEY");
+        public final static Property Company_id = new Property(5, long.class, "company_id", false, "COMPANY_ID");
+        public final static Property Yisao_money = new Property(6, Float.class, "yisao_money", false, "YISAO_MONEY");
+        public final static Property Company_money = new Property(7, float.class, "company_money", false, "COMPANY_MONEY");
+        public final static Property Order_time = new Property(8, String.class, "order_time", false, "ORDER_TIME");
+        public final static Property Paytoworker_time = new Property(9, String.class, "paytoworker_time", false, "PAYTOWORKER_TIME");
+        public final static Property Paytocompany_time = new Property(10, String.class, "paytocompany_time", false, "PAYTOCOMPANY_TIME");
     }
 
     private DaoSession daoSession;
@@ -57,15 +59,17 @@ public class OrderPaymentDao extends AbstractDao<OrderPayment, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"ORDER_PAYMENT\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY ," + // 0: order_id
-                "\"ORDER_MONEY\" REAL NOT NULL ," + // 1: order_money
-                "\"WORKER_ID\" INTEGER NOT NULL ," + // 2: worker_id
-                "\"WORKER_MONEY\" REAL NOT NULL ," + // 3: worker_money
-                "\"COMPANY_ID\" INTEGER NOT NULL ," + // 4: company_id
-                "\"COMPANY_MONEY\" REAL NOT NULL ," + // 5: company_money
-                "\"ORDER_TIME\" TEXT NOT NULL ," + // 6: order_time
-                "\"PAYTOWORKER_TIME\" TEXT," + // 7: paytoworker_time
-                "\"PAYTOCOMPANY_TIME\" TEXT);"); // 8: paytocompany_time
+                "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
+                "\"ORDER_ID\" INTEGER," + // 1: order_id
+                "\"ORDER_MONEY\" REAL NOT NULL ," + // 2: order_money
+                "\"WORKER_ID\" INTEGER NOT NULL ," + // 3: worker_id
+                "\"WORKER_MONEY\" REAL NOT NULL ," + // 4: worker_money
+                "\"COMPANY_ID\" INTEGER NOT NULL ," + // 5: company_id
+                "\"YISAO_MONEY\" REAL," + // 6: yisao_money
+                "\"COMPANY_MONEY\" REAL NOT NULL ," + // 7: company_money
+                "\"ORDER_TIME\" TEXT NOT NULL ," + // 8: order_time
+                "\"PAYTOWORKER_TIME\" TEXT," + // 9: paytoworker_time
+                "\"PAYTOCOMPANY_TIME\" TEXT);"); // 10: paytocompany_time
     }
 
     /** Drops the underlying database table. */
@@ -78,25 +82,35 @@ public class OrderPaymentDao extends AbstractDao<OrderPayment, Long> {
     protected final void bindValues(DatabaseStatement stmt, OrderPayment entity) {
         stmt.clearBindings();
  
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
+ 
         Long order_id = entity.getOrder_id();
         if (order_id != null) {
-            stmt.bindLong(1, order_id);
+            stmt.bindLong(2, order_id);
         }
-        stmt.bindDouble(2, entity.getOrder_money());
-        stmt.bindLong(3, entity.getWorker_id());
-        stmt.bindDouble(4, entity.getWorker_money());
-        stmt.bindLong(5, entity.getCompany_id());
-        stmt.bindDouble(6, entity.getCompany_money());
-        stmt.bindString(7, entity.getOrder_time());
+        stmt.bindDouble(3, entity.getOrder_money());
+        stmt.bindLong(4, entity.getWorker_id());
+        stmt.bindDouble(5, entity.getWorker_money());
+        stmt.bindLong(6, entity.getCompany_id());
+ 
+        Float yisao_money = entity.getYisao_money();
+        if (yisao_money != null) {
+            stmt.bindDouble(7, yisao_money);
+        }
+        stmt.bindDouble(8, entity.getCompany_money());
+        stmt.bindString(9, entity.getOrder_time());
  
         String paytoworker_time = entity.getPaytoworker_time();
         if (paytoworker_time != null) {
-            stmt.bindString(8, paytoworker_time);
+            stmt.bindString(10, paytoworker_time);
         }
  
         String paytocompany_time = entity.getPaytocompany_time();
         if (paytocompany_time != null) {
-            stmt.bindString(9, paytocompany_time);
+            stmt.bindString(11, paytocompany_time);
         }
     }
 
@@ -104,25 +118,35 @@ public class OrderPaymentDao extends AbstractDao<OrderPayment, Long> {
     protected final void bindValues(SQLiteStatement stmt, OrderPayment entity) {
         stmt.clearBindings();
  
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
+ 
         Long order_id = entity.getOrder_id();
         if (order_id != null) {
-            stmt.bindLong(1, order_id);
+            stmt.bindLong(2, order_id);
         }
-        stmt.bindDouble(2, entity.getOrder_money());
-        stmt.bindLong(3, entity.getWorker_id());
-        stmt.bindDouble(4, entity.getWorker_money());
-        stmt.bindLong(5, entity.getCompany_id());
-        stmt.bindDouble(6, entity.getCompany_money());
-        stmt.bindString(7, entity.getOrder_time());
+        stmt.bindDouble(3, entity.getOrder_money());
+        stmt.bindLong(4, entity.getWorker_id());
+        stmt.bindDouble(5, entity.getWorker_money());
+        stmt.bindLong(6, entity.getCompany_id());
+ 
+        Float yisao_money = entity.getYisao_money();
+        if (yisao_money != null) {
+            stmt.bindDouble(7, yisao_money);
+        }
+        stmt.bindDouble(8, entity.getCompany_money());
+        stmt.bindString(9, entity.getOrder_time());
  
         String paytoworker_time = entity.getPaytoworker_time();
         if (paytoworker_time != null) {
-            stmt.bindString(8, paytoworker_time);
+            stmt.bindString(10, paytoworker_time);
         }
  
         String paytocompany_time = entity.getPaytocompany_time();
         if (paytocompany_time != null) {
-            stmt.bindString(9, paytocompany_time);
+            stmt.bindString(11, paytocompany_time);
         }
     }
 
@@ -140,42 +164,46 @@ public class OrderPaymentDao extends AbstractDao<OrderPayment, Long> {
     @Override
     public OrderPayment readEntity(Cursor cursor, int offset) {
         OrderPayment entity = new OrderPayment( //
-            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // order_id
-            cursor.getFloat(offset + 1), // order_money
-            cursor.getLong(offset + 2), // worker_id
-            cursor.getFloat(offset + 3), // worker_money
-            cursor.getLong(offset + 4), // company_id
-            cursor.getFloat(offset + 5), // company_money
-            cursor.getString(offset + 6), // order_time
-            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // paytoworker_time
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8) // paytocompany_time
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1), // order_id
+            cursor.getFloat(offset + 2), // order_money
+            cursor.getLong(offset + 3), // worker_id
+            cursor.getFloat(offset + 4), // worker_money
+            cursor.getLong(offset + 5), // company_id
+            cursor.isNull(offset + 6) ? null : cursor.getFloat(offset + 6), // yisao_money
+            cursor.getFloat(offset + 7), // company_money
+            cursor.getString(offset + 8), // order_time
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // paytoworker_time
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10) // paytocompany_time
         );
         return entity;
     }
      
     @Override
     public void readEntity(Cursor cursor, OrderPayment entity, int offset) {
-        entity.setOrder_id(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setOrder_money(cursor.getFloat(offset + 1));
-        entity.setWorker_id(cursor.getLong(offset + 2));
-        entity.setWorker_money(cursor.getFloat(offset + 3));
-        entity.setCompany_id(cursor.getLong(offset + 4));
-        entity.setCompany_money(cursor.getFloat(offset + 5));
-        entity.setOrder_time(cursor.getString(offset + 6));
-        entity.setPaytoworker_time(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setPaytocompany_time(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
+        entity.setOrder_id(cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1));
+        entity.setOrder_money(cursor.getFloat(offset + 2));
+        entity.setWorker_id(cursor.getLong(offset + 3));
+        entity.setWorker_money(cursor.getFloat(offset + 4));
+        entity.setCompany_id(cursor.getLong(offset + 5));
+        entity.setYisao_money(cursor.isNull(offset + 6) ? null : cursor.getFloat(offset + 6));
+        entity.setCompany_money(cursor.getFloat(offset + 7));
+        entity.setOrder_time(cursor.getString(offset + 8));
+        entity.setPaytoworker_time(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setPaytocompany_time(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
      }
     
     @Override
     protected final Long updateKeyAfterInsert(OrderPayment entity, long rowId) {
-        entity.setOrder_id(rowId);
+        entity.setId(rowId);
         return rowId;
     }
     
     @Override
     public Long getKey(OrderPayment entity) {
         if(entity != null) {
-            return entity.getOrder_id();
+            return entity.getId();
         } else {
             return null;
         }
@@ -183,7 +211,7 @@ public class OrderPaymentDao extends AbstractDao<OrderPayment, Long> {
 
     @Override
     public boolean hasKey(OrderPayment entity) {
-        return entity.getOrder_id() != null;
+        return entity.getId() != null;
     }
 
     @Override
@@ -202,7 +230,7 @@ public class OrderPaymentDao extends AbstractDao<OrderPayment, Long> {
             builder.append(',');
             SqlUtils.appendColumns(builder, "T1", daoSession.getWorkerDao().getAllColumns());
             builder.append(" FROM ORDER_PAYMENT T");
-            builder.append(" LEFT JOIN ORDER T0 ON T.\"_id\"=T0.\"_id\"");
+            builder.append(" LEFT JOIN ORDER T0 ON T.\"ORDER_ID\"=T0.\"_id\"");
             builder.append(" LEFT JOIN WORKER T1 ON T.\"WORKER_ID\"=T1.\"_id\"");
             builder.append(' ');
             selectDeep = builder.toString();

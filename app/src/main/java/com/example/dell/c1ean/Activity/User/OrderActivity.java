@@ -36,10 +36,12 @@ import com.example.dell.c1ean.Application.SystemApplication;
 import com.example.dell.c1ean.Bean.CompanyActivity;
 import com.example.dell.c1ean.Bean.Order;
 import com.example.dell.c1ean.Bean.User;
+import com.example.dell.c1ean.Bean.UserOutaccount;
 import com.example.dell.c1ean.DAO.CompanyActivityDao;
 import com.example.dell.c1ean.DAO.CompanyDao;
 import com.example.dell.c1ean.DAO.OrderDao;
 import com.example.dell.c1ean.DAO.UserDao;
+import com.example.dell.c1ean.DAO.UserOutaccountDao;
 import com.example.dell.c1ean.R;
 import com.example.dell.c1ean.Util.PayPwdEditText;
 
@@ -76,6 +78,7 @@ public class OrderActivity extends AppCompatActivity {
     private String type;
     private LinearLayout type1, type2;
     private TextView company_name, activity_title;
+    private UserOutaccountDao userOutaccountDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,7 @@ public class OrderActivity extends AppCompatActivity {
         user_id = ((BaseApplication) getApplication()).getUSER_ID();
         userDao = ((BaseApplication) getApplication()).getUserDao();
         companyDao = ((BaseApplication) getApplication()).getCompanyDao();
+        userOutaccountDao = ((BaseApplication) getApplication()).getUserOutaccountDao();
 
         companyActivity = companyActivityDao.queryBuilder().where(CompanyActivityDao.Properties.Id.eq(activity_id)).unique();
 
@@ -387,7 +391,6 @@ public class OrderActivity extends AppCompatActivity {
                             }
                             message.what = 0x11;
                             handler.sendMessage(message);
-                            String size = room_size.getText().toString();
                             //设置时间格式
                             SimpleDateFormat timeStampFormat = new SimpleDateFormat("yyyy年MM月dd日HH时mm分ss秒");
                             //获取当前系统时间
@@ -398,14 +401,23 @@ public class OrderActivity extends AppCompatActivity {
                             String money = m.substring(1, m.length());   //去掉￥
                             dialog.cancel();
                             if (type.equals("专业保洁") || type.equals("家居养护")) {
+                                String size = room_size.getText().toString();
                                 Order order = new Order(null, user_id, null, companyActivity.getCompany_id(), companyActivity.getType(), size, null, location, money, order_time, book_time, null, 1, null, null, 0, activity_id, 1);
                                 orderDao.insert(order);
+                                //支出插入用户支出表
+                                UserOutaccount userOutaccount = new UserOutaccount(null,user_id,"支付宝",order_time,money,company_name.getText().toString());
+                                userOutaccountDao.insert(userOutaccount);
                             } else {
                                 String item_num = clean_number.getText().toString();
                                 Order order = new Order(null, user_id, null, companyActivity.getCompany_id(), companyActivity.getType(), null, item_num, location, money, order_time, book_time, null, 1, null, null, 0, activity_id, 1);
                                 orderDao.insert(order);
+                                //支出插入用户支出表
+                                UserOutaccount userOutaccount = new UserOutaccount(null,user_id,"支付宝",order_time,money,company_name.getText().toString());
+                                userOutaccountDao.insert(userOutaccount);
                             }
-                            Intent intent = new Intent(OrderActivity.this, WaitPayActivity.class);
+                            Intent intent = new Intent(OrderActivity.this, PayedActivity.class);
+                            Order order = orderDao.queryBuilder().where(OrderDao.Properties.User_id.eq(user_id),OrderDao.Properties.OrderTime.eq(order_time)).unique();
+                            intent.putExtra("order_id",order.getId());
                             startActivity(intent);
                         }
 

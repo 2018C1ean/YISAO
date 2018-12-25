@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTheme">
+
+    <android.support.v7.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="@dimen/marginTop"
+        android:layout_marginStart="@dimen/marginTop"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:padding="@dimen/marginTop">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/marginTop"
+                android:text="下单成功！感谢您对C1ean的信任"
+                android:textColor="@color/colorOrange"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/marginTop"
+                android:text="三鼎公司将会给您带来优质的家政服务" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="@dimen/marginTop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/order_shape">
+
+                <TextView
+                    android:id="@+id/order_activity_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="预约服务"/>
+                <TextView
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:id="@+id/user_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="联系电话"/>
+                <TextView
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:id="@+id/user_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="地址"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/login_button_shape"
+        android:text="返回首页" />
+</RelativeLayout>

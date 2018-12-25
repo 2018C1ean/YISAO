@@ -19,7 +19,7 @@ android {
     }
 
     greendao {
-        schemaVersion 14
+        schemaVersion 16
         daoPackage 'com.example.dell.c1ean.DAO'
         targetGenDir 'src/main/java'
     }

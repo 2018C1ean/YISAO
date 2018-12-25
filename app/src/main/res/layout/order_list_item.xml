@@ -149,7 +149,26 @@
             android:textSize="@dimen/orderTextSize"
             android:visibility="gone"
             />
-
+        <TextView
+            android:id="@+id/pay_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/activity_type_btn_shape"
+            android:padding="8dp"
+            android:text="去支付"
+            android:textSize="@dimen/orderTextSize"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/confirm_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/activity_type_btn_shape"
+            android:padding="8dp"
+            android:text="确认结束服务"
+            android:textSize="@dimen/orderTextSize"
+            android:visibility="gone" />
     </LinearLayout></RelativeLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>

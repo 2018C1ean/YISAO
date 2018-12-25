@@ -57,12 +57,12 @@ public class ShowLocationActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         //查询当前的user
         User user = userDao.queryBuilder().where(UserDao.Properties.Id.eq(user_id)).unique();
 
         if (user.getLocation1() != null) {
             list.add(user.getLocation1());
+
         }
         if (user.getLocation2() != null) {
             list.add(user.getLocation2());
@@ -71,7 +71,9 @@ public class ShowLocationActivity extends AppCompatActivity {
             list.add(user.getLocation3());
         }
 
-        Toast.makeText(this, user.getLocation1()+"\n"+user.getLocation2()+"\n"+user.getLocation3(), Toast.LENGTH_SHORT).show();
+
+//        Toast.makeText(this, list.size()+"", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, user.getLocation1()+"\n"+user.getLocation2()+"\n"+user.getLocation3(), Toast.LENGTH_SHORT).show();
         if (list.size() > 0) {
             locationListAdapter = new LocationListAdapter(list, ShowLocationActivity.this, userDao, user_id);
             location_list.setAdapter(locationListAdapter);
@@ -85,6 +87,7 @@ public class ShowLocationActivity extends AppCompatActivity {
                 Intent intent = new Intent(ShowLocationActivity.this, LocationManageActivity.class);
                 intent.putExtra("item_id", id);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -98,6 +101,7 @@ public class ShowLocationActivity extends AppCompatActivity {
 //                    Toast.makeText(ShowLocationActivity.this, n+"", Toast.LENGTH_SHORT).show();
                     intent.putExtra("location_num", n);
                     startActivity(intent);
+                    finish();
                 }
             });
         } else {

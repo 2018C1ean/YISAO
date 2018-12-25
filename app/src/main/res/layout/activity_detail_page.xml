@@ -4,25 +4,29 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
+    <include layout="@layout/line"/>
+
     <LinearLayout
-        android:padding="10dp"
-        android:gravity="center_vertical"
         android:id="@+id/line"
-        android:orientation="horizontal"
-        android:background="@color/colorWhite"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
         <ImageView
             android:id="@+id/back"
             android:layout_width="35dp"
-            android:src="@mipmap/left"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:src="@mipmap/left" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="服务详情"/>
+            android:text="服务详情" />
     </LinearLayout>
-    <include layout="@layout/line"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

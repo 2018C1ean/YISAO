@@ -14,12 +14,17 @@ import com.example.dell.c1ean.DAO.WorkerDao;
 /**
  * Created by 李雯晴 on 2018/11/28.
  * 订单金额分配表（主要参与者为阿姨和公司）
+ * 订单金额抽成比例：
+ * 阿姨70%
+ * 公司25%
+ * app5%
  */
 
 @Entity
 public class OrderPayment {
 
     @Id
+    private Long id;
     private Long order_id;  //订单id
     @ToOne(joinProperty = "order_id")
     private Order order;    //order_id为外键参照order表的主键id
@@ -33,6 +38,7 @@ public class OrderPayment {
     private Float worker_money; //阿姨所得报酬
     @NotNull
     private Long company_id;    //公司id
+    private Float yisao_money;  //app抽成
     @NotNull
     private Float company_money;    //公司所抽成金额
     @NotNull
@@ -50,17 +56,18 @@ public class OrderPayment {
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
 
-    @Generated(hash = 227001613)
-    public OrderPayment(Long order_id, @NotNull Float order_money,
-            @NotNull Long worker_id, @NotNull Float worker_money,
-            @NotNull Long company_id, @NotNull Float company_money,
-            @NotNull String order_time, String paytoworker_time,
+    @Generated(hash = 374446360)
+    public OrderPayment(Long id, Long order_id, @NotNull Float order_money, @NotNull Long worker_id,
+            @NotNull Float worker_money, @NotNull Long company_id, Float yisao_money,
+            @NotNull Float company_money, @NotNull String order_time, String paytoworker_time,
             String paytocompany_time) {
+        this.id = id;
         this.order_id = order_id;
         this.order_money = order_money;
         this.worker_id = worker_id;
         this.worker_money = worker_money;
         this.company_id = company_id;
+        this.yisao_money = yisao_money;
         this.company_money = company_money;
         this.order_time = order_time;
         this.paytoworker_time = paytoworker_time;
@@ -246,6 +253,22 @@ public class OrderPayment {
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getOrderPaymentDao() : null;
+    }
+
+    public Float getYisao_money() {
+        return this.yisao_money;
+    }
+
+    public void setYisao_money(Float yisao_money) {
+        this.yisao_money = yisao_money;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 
